@@ -3,5 +3,5 @@ import { Order } from '../domain/Order';
 
 export const getOrders = (): Promise<Order[]> =>
   client('retrieveOrders', {
-    method: 'GET',
+    method: 'GET'
   });

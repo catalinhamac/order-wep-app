@@ -7,7 +7,6 @@ import formValuesReducer from './form-values/form-values-slice';
 import createdOrderReducer from './create-order/create-order-slice';
 import cancelOrderReducer from './cancel-order/cancel-order-slice';
 
-
 const rootReducer = combineReducers({
   orders: ordersReducer,
   supportedCurrencyPairs: supportedCurrencyPairsReducer,
@@ -16,11 +15,10 @@ const rootReducer = combineReducers({
   cancelOrder: cancelOrderReducer
 });
 
-
 export const store = configureStore({
   reducer: rootReducer,
   devTools: true,
-  middleware: getDefaultMiddleware(),
+  middleware: getDefaultMiddleware()
 });
 
 export type AppDispatch = typeof store.dispatch;

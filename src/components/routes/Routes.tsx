@@ -7,11 +7,14 @@ import { Orders } from '../orders/Orders';
 import { CreateOrder } from '../create-order/CreateOrder';
 import { NoMatch } from './NoMatch';
 
-
-export const Routes = () => {
-    return (
-        <Switch>
-      <Redirect exact from={AppRoute.Home} to={AppRoute.SupportedCurrencyPairs} />
+export const Routes = (): JSX.Element => {
+  return (
+    <Switch>
+      <Redirect
+        exact
+        from={AppRoute.Home}
+        to={AppRoute.SupportedCurrencyPairs}
+      />
       <Route exact path={AppRoute.SupportedCurrencyPairs}>
         <SupportedCurrencyPairs />
       </Route>
@@ -25,5 +28,5 @@ export const Routes = () => {
         <NoMatch />
       </Route>
     </Switch>
-    )
-}
+  );
+};

@@ -1,7 +1,7 @@
 import { getCreatedOrderThunk } from '../create-order-thunks';
 import { setCreatedOrder, setSuccessCreatedOrder } from '../create-order-slice';
 import * as createOrderApi from '../../../api/create-order';
-import { OrderMockBuilder } from "../../../mocks/OrderMockBuilder";
+import { OrderMockBuilder } from '../../../mocks/OrderMockBuilder';
 
 const mock = new OrderMockBuilder().build();
 

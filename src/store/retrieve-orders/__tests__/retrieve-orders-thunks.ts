@@ -1,7 +1,7 @@
 import { getOrdersThunk } from '../retrieve-orders-thunks';
 import { setOrders, setSuccessOrders } from '../retrieve-orders-slice';
 import * as getOrdersApi from '../../../api/retrieve-orders';
-import { OrderMockBuilder } from "../../../mocks/OrderMockBuilder";
+import { OrderMockBuilder } from '../../../mocks/OrderMockBuilder';
 
 const mock = new OrderMockBuilder().build();
 

@@ -1,7 +1,7 @@
 import { getCancelOrderThunk } from '../cancel-order-thunks';
 import { setCancelOrder, setSuccessCancelOrder } from '../cancel-order-slice';
 import * as cancelOrderApi from '../../../api/cancel-order';
-import { OrderMockBuilder } from "../../../mocks/OrderMockBuilder";
+import { OrderMockBuilder } from '../../../mocks/OrderMockBuilder';
 
 const mock = new OrderMockBuilder().build();
 

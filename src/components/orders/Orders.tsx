@@ -4,13 +4,16 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import Alert from '@material-ui/lab/Alert';
 
 import { selectOrders } from '../../store/retrieve-orders/retrieve-orders-slice';
-import{ getOrdersThunk } from "../../store/retrieve-orders/retrieve-orders-thunks";
-import { getCancelOrderThunk } from "../../store/cancel-order/cancel-order-thunks";
-import { resetErrorsCancelOrder, selectErrors } from "../../store/cancel-order/cancel-order-slice";
-import { Items } from "./Items"
+import { getOrdersThunk } from '../../store/retrieve-orders/retrieve-orders-thunks';
+import { getCancelOrderThunk } from '../../store/cancel-order/cancel-order-thunks';
+import {
+  resetErrorsCancelOrder,
+  selectErrors
+} from '../../store/cancel-order/cancel-order-slice';
+import { Items } from './Items';
 import { BoxCenter } from '../BoxCenter';
-import { CreateOrderBtn } from "../create-order/CreateOrderBtn";
-import { Confirm, Dialog } from "../dialog/Dialog";
+import { CreateOrderBtn } from '../create-order/CreateOrderBtn';
+import { Confirm, Dialog } from '../dialog/Dialog';
 
 export const testId = 'ordersTestId';
 
@@ -23,37 +26,39 @@ export const Orders = (): JSX.Element => {
 
   useEffect(() => {
     dispatch(getOrdersThunk());
-    dispatch(resetErrorsCancelOrder())
+    dispatch(resetErrorsCancelOrder());
   }, [dispatch]);
 
   const handleCancel = (id: string) => {
     setOpenModal(true);
-    setCancelId(id)
-  }
+    setCancelId(id);
+  };
 
   const handleClose = (confirmation: string) => {
     setOpenModal(false);
-    if(Confirm.Delete !== confirmation) return;
-    dispatch(getCancelOrderThunk(cancelId));    
-}
+    if (Confirm.Delete !== confirmation) return;
+    dispatch(getCancelOrderThunk(cancelId));
+  };
 
-if(error) {
- return <Alert severity="error">{error.message}</Alert>
-}
+  if (error) {
+    return <Alert severity="error">{error.message}</Alert>;
+  }
 
-    return (
-        <div data-testid={testId}>
-            { orders ? 
-            <>
-              <CreateOrderBtn />
-              <h1>Orders</h1>
-              <Items items={orders} handleCancel={handleCancel} />
-              <Dialog open={openModal} handleClose={handleClose} />
-            </> :
-            <BoxCenter>
-                <CircularProgress disableShrink />
-                <h4>Loading orders</h4>
-            </BoxCenter> }
-        </div>
-    )
-}
+  return (
+    <div data-testid={testId}>
+      {orders ? (
+        <>
+          <CreateOrderBtn />
+          <h1>Orders</h1>
+          <Items items={orders} handleCancel={handleCancel} />
+          <Dialog open={openModal} handleClose={handleClose} />
+        </>
+      ) : (
+        <BoxCenter>
+          <CircularProgress disableShrink />
+          <h4>Loading orders</h4>
+        </BoxCenter>
+      )}
+    </div>
+  );
+};

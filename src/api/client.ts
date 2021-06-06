@@ -1,25 +1,25 @@
-import axios from "axios";
+import axios from 'axios';
 
-import { appConfig } from "../config/app-config";
+import { appConfig } from '../config/app-config';
 const { API_URL, retryCount } = appConfig;
 
 export async function client(
   endpoint: string,
   { requestType, body, ...customConfig }: any = {},
   apiUrl = API_URL
-) {
+): Promise<any> {
   const headers = {
-    "Content-Type": "application/json; charset=UTF-8",
+    'Content-Type': 'application/json; charset=UTF-8'
   };
 
   const requestConfig = {
     method: requestType,
     headers: {
       ...headers,
-      ...customConfig.headers,
+      ...customConfig.headers
     },
     withCredentials: false,
-    ...customConfig,
+    ...customConfig
   };
 
   if (body) {

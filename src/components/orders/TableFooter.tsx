@@ -25,7 +25,7 @@ export const TableFooter = (props: Props): JSX.Element => {
     page,
     rowsPerPage,
     handleChangePage,
-    handleChangeRowsPerPage,
+    handleChangeRowsPerPage
   } = props;
 
   return (

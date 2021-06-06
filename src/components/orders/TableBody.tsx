@@ -7,7 +7,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 
 import { Order } from '../../domain/Order';
 
-export const testId = "tableBodyTestId";
+export const testId = 'tableBodyTestId';
 
 interface Props {
   rows: Order[] | null;
@@ -17,7 +17,7 @@ interface Props {
 }
 
 interface Row extends Order {
-  [index: string]: any
+  [index: string]: any;
 }
 
 export const TableBody = ({
@@ -28,39 +28,37 @@ export const TableBody = ({
   ...rest
 }: Props): JSX.Element => (
   <MuiTableBody {...rest}>
-    {rows && (rowsPerPage > 0
-      ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-      : rows
-    ).map((row: Row) => {
-      const {
-        id,
-        buy,
-        counterCcy,
-        investmentCcy,
-        limit,
-        validUntil
-      } = row;
+    {rows &&
+      (rowsPerPage > 0
+        ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+        : rows
+      ).map((row: Row) => {
+        const { id, buy, counterCcy, investmentCcy, limit, validUntil } = row;
 
-      return <TableRow key={id} hover data-testid={testId}>
-        <TableCell component="td" scope="row">
-          {counterCcy}
-        </TableCell>
-        <TableCell component="td" scope="row">
-          {investmentCcy}
-        </TableCell>
-        <TableCell component="td" scope="row">
-          {buy ? "Buy" : "Sell"}
-        </TableCell>
-        <TableCell component="td" scope="row">
-          {limit}
-        </TableCell>
-        <TableCell component="td" scope="row">
-          {validUntil}
-        </TableCell>
-        <TableCell component="td" scope="row">
-          <Button onClick={() => handleCancel(id)}><DeleteIcon /></Button>
-        </TableCell>
-      </TableRow>
-    })}
+        return (
+          <TableRow key={id} hover data-testid={testId}>
+            <TableCell component="td" scope="row">
+              {counterCcy}
+            </TableCell>
+            <TableCell component="td" scope="row">
+              {investmentCcy}
+            </TableCell>
+            <TableCell component="td" scope="row">
+              {buy ? 'Buy' : 'Sell'}
+            </TableCell>
+            <TableCell component="td" scope="row">
+              {limit}
+            </TableCell>
+            <TableCell component="td" scope="row">
+              {validUntil}
+            </TableCell>
+            <TableCell component="td" scope="row">
+              <Button onClick={() => handleCancel(id)}>
+                <DeleteIcon />
+              </Button>
+            </TableCell>
+          </TableRow>
+        );
+      })}
   </MuiTableBody>
 );
