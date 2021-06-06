@@ -53,7 +53,7 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 -Create Service connection - Azure Resource Manager and fill up with your organization data.\
 -Go on release tab and finish up the process.\
 -From created pipeline create a release.\
--Visit the Azure web app URL and you can see the app deployed.\
+-Visit the Azure web app URL and you can see the app deployed.
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
