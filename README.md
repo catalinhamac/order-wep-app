@@ -39,7 +39,7 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-# Steps for deployment of React app with continuous integration (CI) and continuous deployment (CD) with with Azure DevOps
+# Steps for deployment of app with continuous integration (CI) and continuous deployment (CD) with Azure DevOps
 
 -Create a project in your Azure DevOps organization.\
 -Navigate to repo's tab and create a new repo with Git project. Select clone button to clone the project to local directory. Commit and push your app to Azure DevOps repo.\
