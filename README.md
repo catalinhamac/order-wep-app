@@ -41,19 +41,19 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 # Steps for deployment of React app with continuous integration (CI) and continuous deployment (CD) with with Azure DevOps
 
--Create a project in your Azure DevOps organization.
--Navigate to repo's tab and create a new repo with Git project. Select clone button to clone the project to local directory. Commit and push your app to Azure DevOps repo.
--In order to have CI and CD throught Azure DevOps we have to setup a new pipeline. Click on pipelines and create a new one with an empty job. Select Azure repos git - select repo for this project - select Node.js with React to generate a new yaml file.
--Choose Agent job and add npm tasks for install and run build.
--Create an App service to deploy React app.
--Go to pipelines and create a new release.
--Choose deploying with Azure App Service Deployment. After it's finished, you can click on the newly created app service to see the details. If you click on the URL, you will be able to see it live.
--Name stage use something like 'Production' and add artifact and choose pipeline and artifact that was generated when you run pipeline.
--Click on the job task under stage and select Deploy Azure App Service.
--Create Service connection - Azure Resource Manager and fill up with your organization data.
--Go on release tab and finish up the process.
--From created pipeline create a release.
--Visit the Azure web app URL and you can see the app deployed.
+-Create a project in your Azure DevOps organization.\
+-Navigate to repo's tab and create a new repo with Git project. Select clone button to clone the project to local directory. Commit and push your app to Azure DevOps repo.\
+-In order to have CI and CD throught Azure DevOps we have to setup a new pipeline. Click on pipelines and create a new one with an empty job. Select Azure repos git - select repo for this project - select Node.js with React to generate a new yaml file.\
+-Choose Agent job and add npm tasks for install and run build.\
+-Create an App service to deploy React app.\
+-Go to pipelines and create a new release.\
+-Choose deploying with Azure App Service Deployment.\ After it's finished, you can click on the newly created app service to see the details.\ If you click on the URL, you will be able to see it live.\
+-Name stage use something like 'Production' and add artifact and choose pipeline and artifact that was generated when you run pipeline.\
+-Click on the job task under stage and select Deploy Azure App Service.\
+-Create Service connection - Azure Resource Manager and fill up with your organization data.\
+-Go on release tab and finish up the process.\
+-From created pipeline create a release.\
+-Visit the Azure web app URL and you can see the app deployed.\
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
