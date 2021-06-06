@@ -1,4 +1,4 @@
 export interface SupportedCurrencyPairs {
-  ccy1: string;
-  ccy2: string;
+  readonly ccy1: string;
+  readonly ccy2: string;
 }
