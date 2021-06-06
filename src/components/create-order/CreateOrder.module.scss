@@ -1,0 +1,26 @@
+@import "../../styles/variables.scss";
+
+.top {
+  display: flex;
+  align-items: center;
+
+  > div {
+    &:first-of-type {
+      margin-right: $s50;
+    }
+  }
+}
+
+.paper {
+  padding: $s16;
+  margin-bottom: $s10;
+
+  label {
+    display: block;
+    margin-bottom: $s5;
+  }
+}
+
+.formControl {
+  margin-bottom: $s16;
+}
