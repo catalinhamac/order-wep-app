@@ -13,9 +13,9 @@ import { getFormValuesThunk } from '../../store/form-values/form-values-thunks';
 import { getCreatedOrderThunk } from '../../store/create-order/create-order-thunks';
 import { selectErrors } from '../../store/create-order/create-order-slice';
 import { CreateOrderBtn } from '../create-order/CreateOrderBtn';
+import { Order } from '../../domain/Order';
 
 import styles from './CreateOrder.module.scss';
-import { Order } from '../../domain/Order';
 
 export const testId = 'createOrderTestId';
 
