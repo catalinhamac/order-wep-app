@@ -15,7 +15,7 @@ interface Props {
   items: SupportedCurrencyPairs[];
 }
 
-export const Pairs = ({ items }: Props): JSX.Element => {
+export const Pairs = ({ items = [] }: Props): JSX.Element => {
   return (
     <div data-testid={testId}>
       <h1>{title}</h1>

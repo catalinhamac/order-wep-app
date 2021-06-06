@@ -1,4 +1,5 @@
 import React, { useState, ChangeEvent, useCallback } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
@@ -14,6 +15,7 @@ import { getCreatedOrderThunk } from '../../store/create-order/create-order-thun
 import { selectErrors } from '../../store/create-order/create-order-slice';
 import { CreateOrderBtn } from '../create-order/CreateOrderBtn';
 import { Order } from '../../domain/Order';
+import { AppRoute } from '../../config/route-config';
 
 import styles from './CreateOrder.module.scss';
 
@@ -36,6 +38,7 @@ const CurrencyOptions = ({ currencies }: Currencies): JSX.Element => (
 );
 
 export const CreateOrder = (): JSX.Element => {
+  const history = useHistory();
   const dispatch = useDispatch() as any;
   const formValues: any = useSelector(selectFormValues, shallowEqual);
   const error = useSelector(selectErrors, shallowEqual);
@@ -65,9 +68,10 @@ export const CreateOrder = (): JSX.Element => {
       dispatch(getFormValuesThunk(values)).then((v: any) => {
         if (error) return;
         dispatch(getCreatedOrderThunk(v));
+        history.push(AppRoute.Orders);
       });
     },
-    [buyValue, dispatch, error]
+    [buyValue, dispatch, error, history]
   );
 
   if (error) {

@@ -6,6 +6,9 @@ export const getFormValuesThunk = (formValues: Order) => async (
   dispatch: AppDispatch
 ): Promise<any> => {
   try {
+    if (!formValues) {
+      throw new Error('Create order form fields empty.');
+    }
     dispatch(setFormValues(formValues));
     return Promise.resolve(formValues);
   } catch (e) {
