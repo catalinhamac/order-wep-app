@@ -3,12 +3,15 @@ import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Alert from '@material-ui/lab/Alert';
 
-import { selectOrders } from '../../store/retrieve-orders/retrieve-orders-slice';
+import {
+  selectOrders,
+  selectErrors as selectRetrieveOrdersError
+} from '../../store/retrieve-orders/retrieve-orders-slice';
 import { getOrdersThunk } from '../../store/retrieve-orders/retrieve-orders-thunks';
 import { getCancelOrderThunk } from '../../store/cancel-order/cancel-order-thunks';
 import {
   resetErrorsCancelOrder,
-  selectErrors
+  selectErrors as selectCancelOrderError
 } from '../../store/cancel-order/cancel-order-slice';
 import { Items } from './Items';
 import { BoxCenter } from '../BoxCenter';
@@ -20,7 +23,11 @@ export const testId = 'ordersTestId';
 export const Orders = (): JSX.Element => {
   const dispatch = useDispatch();
   const orders = useSelector(selectOrders, shallowEqual);
-  const error = useSelector(selectErrors, shallowEqual);
+  const retrieveOrderError = useSelector(
+    selectRetrieveOrdersError,
+    shallowEqual
+  );
+  const cancelOrderError = useSelector(selectCancelOrderError, shallowEqual);
   const [openModal, setOpenModal] = useState(false);
   const [cancelId, setCancelId] = useState('');
 
@@ -40,8 +47,12 @@ export const Orders = (): JSX.Element => {
     dispatch(getCancelOrderThunk(cancelId));
   };
 
-  if (error) {
-    return <Alert severity="error">{error.message}</Alert>;
+  if (retrieveOrderError || cancelOrderError) {
+    return (
+      <Alert severity="error">
+        {retrieveOrderError?.message || cancelOrderError?.message}
+      </Alert>
+    );
   }
 
   return (

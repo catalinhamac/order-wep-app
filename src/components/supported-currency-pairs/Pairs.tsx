@@ -15,22 +15,20 @@ interface Props {
   items: SupportedCurrencyPairs[];
 }
 
-export const Pairs = ({ items = [] }: Props): JSX.Element => {
-  return (
-    <div data-testid={testId}>
-      <h1>{title}</h1>
-      <List>
-        {items.map(({ ccy1, ccy2 }: SupportedCurrencyPairs, index: number) => (
-          <ListItem key={index}>
-            <ListItemAvatar>
-              <Avatar>
-                <AttachMoneyIcon />
-              </Avatar>
-            </ListItemAvatar>
-            <ListItemText primary={`${ccy1}/${ccy2}`} />
-          </ListItem>
-        ))}
-      </List>
-    </div>
-  );
-};
+export const Pairs = ({ items = [] }: Props): JSX.Element => (
+  <div data-testid={testId}>
+    <h1>{title}</h1>
+    <List>
+      {items.map(({ ccy1, ccy2 }: SupportedCurrencyPairs, index: number) => (
+        <ListItem key={index}>
+          <ListItemAvatar>
+            <Avatar>
+              <AttachMoneyIcon />
+            </Avatar>
+          </ListItemAvatar>
+          <ListItemText primary={`${ccy1}/${ccy2}`} />
+        </ListItem>
+      ))}
+    </List>
+  </div>
+);
