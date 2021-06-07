@@ -32,7 +32,7 @@ export const slice = createSlice({
       state.data = initialState.data;
       state.errors = action.payload;
     },
-    resetCreateOrder: state => (state = { ...state, ...initialState })
+    resetCreateOrder: () => initialState
   }
 });
 
@@ -47,7 +47,9 @@ export const selectCreatedOrder = (state: RootState): Order | null =>
   state.createdOrder.data;
 export const selectIsLoading = (state: RootState): boolean =>
   state.createdOrder.isLoading;
-export const selectErrors = (state: RootState): Error | null =>
-  state.createdOrder.errors;
+export const selectErrors = (state: RootState): Error | null => {
+  console.log(state);
+  return state.createdOrder.errors;
+};
 
 export default slice.reducer;

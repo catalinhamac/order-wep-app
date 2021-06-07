@@ -37,6 +37,7 @@ const CurrencyOptions = ({ currencies }: Currencies): JSX.Element => (
   </>
 );
 
+// eslint-disable-next-line sonarjs/cognitive-complexity
 export const CreateOrder = (): JSX.Element => {
   const history = useHistory();
   const dispatch = useDispatch() as any;
@@ -67,8 +68,10 @@ export const CreateOrder = (): JSX.Element => {
 
       dispatch(getFormValuesThunk(values)).then((v: any) => {
         if (error) return;
-        dispatch(getCreatedOrderThunk(v));
-        history.push(AppRoute.Orders);
+
+        dispatch(getCreatedOrderThunk(v)).then(() =>
+          history.push(AppRoute.Orders)
+        );
       });
     },
     [buyValue, dispatch, error, history]

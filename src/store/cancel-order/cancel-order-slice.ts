@@ -32,7 +32,7 @@ export const slice = createSlice({
       state.data = initialState.data;
       state.errors = action.payload;
     },
-    resetErrorsCancelOrder: state => (state = { ...state, ...initialState })
+    resetErrorsCancelOrder: () => initialState
   }
 });
 
