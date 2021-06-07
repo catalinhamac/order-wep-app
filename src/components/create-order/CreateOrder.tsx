@@ -37,7 +37,6 @@ const CurrencyOptions = ({ currencies }: Currencies): JSX.Element => (
   </>
 );
 
-// eslint-disable-next-line sonarjs/cognitive-complexity
 export const CreateOrder = (): JSX.Element => {
   const history = useHistory();
   const dispatch = useDispatch() as any;
